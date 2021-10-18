@@ -15,8 +15,8 @@ jobs:
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  welcome:
-    jobs:
-      - welcome/run
-      - say_name  
+# workflows:
+#   welcome:
+#     jobs:
+#       - welcome/run
+#       - say_name  
