@@ -5,16 +5,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say_hello:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo hello
-  say_world:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo world
+  
   say_name:
     docker:
       - image: circleci/node:13.8.0 
@@ -28,8 +19,4 @@ workflows:
   welcome:
     jobs:
       - welcome/run
-      - say_hello
-      - say_world:
-          requires:
-            - say_hello
       - say_name  
