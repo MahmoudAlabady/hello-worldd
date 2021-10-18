@@ -13,6 +13,6 @@ jobs:
             echo $name
 
 workflows:
-  test-env-vars:
+  test:
     jobs:
       - build
