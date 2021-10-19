@@ -21,23 +21,17 @@ jobs:
     steps:
       - run: echo "text to output here" > ~/output.txt
       - persist_to_workspace:
-          root: ~/
+          root: ~
           paths:
             - output.txt
             
-  print_output_file:
+  save_fail:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - attach_workspace:
-          at: ~/
-      - run: cat ~/output.txt  
-  test:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - print_pipeline_id:
-          to: $CIRCLE_WORKFLOW_ID
+      - run: 
+          when: on_fail
+     
         
        
 workflows:
@@ -47,8 +41,4 @@ workflows:
     jobs:
       - welcome/run
       - save_hello_world_output
-      - print_output_file:
-          requires:
-            - save_hello_world_output
-      - test      
-      
+      - save_fail
