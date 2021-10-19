@@ -24,8 +24,10 @@ jobs:
           root: ~
           paths:
             - output.txt
-    steps:
-      - run: echo fail 
+    
+      - run: 
+          name: on error
+          command: echo "Hello Error!"
           when: on_fail
      
         
@@ -37,4 +39,3 @@ workflows:
     jobs:
       - welcome/run
       - save_hello_world_output
-      - save_fail
