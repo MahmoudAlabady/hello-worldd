@@ -24,12 +24,8 @@ jobs:
           root: ~
           paths:
             - output.txt
-            
-  save_fail:
-    docker:
-      - image: circleci/node:13.8.0
     steps:
-      - run: 
+      - run: echo fail 
           when: on_fail
      
         
